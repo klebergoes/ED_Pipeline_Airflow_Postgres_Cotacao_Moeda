@@ -1,0 +1,22 @@
+services:
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8081:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - airflow_6221ff_airflow
+    depends_on:
+      - postgres
+
+volumes:
+  pgadmin-data:
+
+networks:
+  airflow_6221ff_airflow:
+    external: true
