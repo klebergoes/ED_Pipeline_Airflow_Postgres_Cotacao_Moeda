@@ -78,9 +78,9 @@ Principais diretórios e arquivos:
 
 │       └── db.py                            # Função utilitária para conexão com Postgres.
 
-├── docker-compose.override.yml              # Override do docker-compose padrão para configurar o serviço pgAdmin 4 (interface web
-                                               para gerenciar bancos PostgreSQL) para rodar no mesmo container do airflow, definir
-                                               o volume para persistir dados e conectar o pgAdmin à rede do Airflow.
+├── docker-compose.override.yml              # Override do docker-compose padrão para configurar o serviço pgAdmin 4 (interface
+                                               web para gerenciar bancos PostgreSQL) para rodar no mesmo container do airflow,
+                                               definir o volume para persistir dados e conectar o pgAdmin à rede do Airflow.
 
 └── README.md                                # Documentação do projeto.
 ```
@@ -195,6 +195,10 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
  
 - **Modelagem Analítica (Area DW → BI):**
   - Após o carregamento dos dados no Data Warehouse, inicia-se a camada analítica, onde os dados são organizados de forma a atender às necessidades de análise de negócio
+
+- [x] Imagem Fluxograma Airflow
+
+- [X] Imagem tempo de execução de cada atividade do pipeline:
 
 ## Como Executar
 
