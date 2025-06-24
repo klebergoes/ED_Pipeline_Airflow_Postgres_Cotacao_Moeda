@@ -202,7 +202,43 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
 
 ## Como Executar
 
+1. Certifique-se de que tenha instalado em sua máquina:
+   
+   1. **Docker:** Necessário para criar e executar os containers do Airflow.
+      
+   2. **Astro:** CLI (Astronomer CLI): Utilizado para gerenciar projetos Airflow localmente com Docker de forma simples.
+      
+   3. **Git:** Para clonar o projeto no GitHub.
+  
+2. Navegar até o diretório que deseja baixar o projeto e rodar:
+   
+```
+git clone https://github.com/klebergoes/ED_Pipeline_Airflow_Postgres_Cotacao_Moeda.git
+```
 
+3. Iniciar o ambiente Airflow local:
+```
+astro dev start
+```
+4. Acesse a interface gráfica do airflow via browser:
+```
+http://localhost:8080
+```
+- **Credenciais:**
+
+  - **Login:** admin
+
+  - **Senha:** admin
+
+5. Acesse a interface gráfica do pgAdmin 4 via browser:
+```
+http://localhost:8081
+```
+- **Credenciais:**
+
+  - **Login:** admin@admin.com
+
+  - **Senha:** admin
 
 ## Resultados
 
