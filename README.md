@@ -239,7 +239,29 @@ http://localhost:8081
   - **Login:** admin@admin.com
 
   - **Senha:** admin
+ 
+  Após logar no pgAdmin 4, é necessário criar um servidor (Create Server) e preencher os seguintes dados:
 
+  - Aba "General":
+    - Name: Postgres_Astro (sugestão — pode ser qualquer nome)
+  - Aba "Connection":
+    - Host name / Address: airflow_6221ff-postgres-1 
+    - Port: 5432
+    - Maintenance database: postgres
+    - Username: postgres
+    - Password: postgres
+   
+  **Dica:**
+
+  Para conferir o nome do host (container) e a porta em que o PostgreSQL está rodando, execute:
+  ```
+  docker ps
+  ```
+  Você verá algo como:
+  ```
+  CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS         PORTS                                              NAMES
+  2085ece929b3   postgres:12.6                   "docker-entrypoint.s…"   5 weeks ago    Up 8 minutes   127.0.0.1:5432->5432/tcp                           airflow_6221ff-postgres-1
+  ```
 ## Resultados
 
 
