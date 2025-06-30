@@ -166,7 +166,7 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
 
 #### Arquitetura:
 
-- [x] Imagem Arquitetura Inmon
+![Image](https://github.com/user-attachments/assets/82f4dae2-1d0e-4020-830e-fbafcece35b4)
 
 #### Detalhamento Pipeline:
 
@@ -199,25 +199,25 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
 
 #### Pipeline Airflow:
 
-- [x] Imagem Fluxograma Airflow
+![Image](https://github.com/user-attachments/assets/06936b5c-28e2-45f1-9ce3-9380f283cd17)
 
 #### Performance de cada atividade do Airflow:
 
-- [X] Imagem tempo de execução de cada atividade do pipeline
+![Image](https://github.com/user-attachments/assets/e223709e-ff6a-428d-a817-801982d528f3)
 
 #### Criação de views para Validação de carga DW:
 
 Volume de registros ativos da tabela dimensão:
 
-- [X] dw.vw_active_currencies
+![Image](https://github.com/user-attachments/assets/389046bc-7ae2-48e3-bff8-8c897d621bc3)
 
 Volume de registros por dia:
 
-- [X] dw.vw_daily_load_volume
+![Image](https://github.com/user-attachments/assets/7d42506f-9b3c-4818-bb87-6c9cd4cb8d9c)
 
 Qualidade da carga realizada. Verificação se há null ou zero nas colunas:
 
-- [X] dw.vw_quotation_quality_check
+![Image](https://github.com/user-attachments/assets/7d5c7530-bbe8-4a7f-9a3f-bec65c9ff941)
 
 ## Como Executar
 
