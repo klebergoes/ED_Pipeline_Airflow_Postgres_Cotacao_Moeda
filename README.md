@@ -78,9 +78,10 @@ Principais diretórios e arquivos:
 
 │       └── db.py                            # Função utilitária para conexão com Postgres.
 
-├── docker-compose.override.yml              # Override do docker-compose padrão para configurar o serviço pgAdmin 4 (interface
-                                               web para gerenciar bancos PostgreSQL) para rodar no mesmo container do airflow,
-                                               definir o volume para persistir dados e conectar o pgAdmin à rede do Airflow.
+├── docker-compose.override.yml              # Override do docker-compose padrão para configurar o serviço pgAdmin 4
+                                               (interface web para gerenciar bancos PostgreSQL) para rodar no mesmo
+                                               container do airflow, definir o volume para persistir dados e conectar
+                                               o pgAdmin à rede do Airflow.
 
 └── README.md                                # Documentação do projeto.
 ```
@@ -196,9 +197,27 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
 - **Modelagem Analítica (Area DW → BI):**
   - Após o carregamento dos dados no Data Warehouse, inicia-se a camada analítica, onde os dados são organizados de forma a atender às necessidades de análise de negócio
 
+#### Pipeline Airflow:
+
 - [x] Imagem Fluxograma Airflow
 
-- [X] Imagem tempo de execução de cada atividade do pipeline:
+#### Performance de cada atividade do Airflow:
+
+- [X] Imagem tempo de execução de cada atividade do pipeline
+
+#### Criação de views para Validação de carga DW:
+
+Volume de registros ativos da tabela dimensão:
+
+- [X] dw.vw_active_currencies
+
+Volume de registros por dia:
+
+- [X] dw.vw_daily_load_volume
+
+Qualidade da carga realizada. Verificação se há null ou zero nas colunas:
+
+- [X] dw.vw_quotation_quality_check
 
 ## Como Executar
 
@@ -259,15 +278,58 @@ http://localhost:8081
   ```
   Você verá algo como:
   ```
-  CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS         PORTS                                              NAMES
-  2085ece929b3   postgres:12.6                   "docker-entrypoint.s…"   5 weeks ago    Up 8 minutes   127.0.0.1:5432->5432/tcp                           airflow_6221ff-postgres-1
+  CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS         
+  2085ece929b3   postgres:12.6                   "docker-entrypoint.s…"   5 weeks ago    Up 8 minutes   
+
+  PORTS                                              NAMES
+  127.0.0.1:5432->5432/tcp                           airflow_6221ff-postgres-1
   ```
 ## Resultados
 
+- Redução de Erros Manuais
 
+  - Eliminação de tarefas repetitivas e suscetíveis a falhas humanas.
+
+  - Garantia de consistência e padronização nos processos de ingestão de dados.
+
+- Aumento de Produtividade
+
+  - Profissionais liberados para focar em análises e decisões estratégicas.
+
+  - Processos antes manuais são automatizados, reduzindo o tempo de execução de horas para minutos ou segundos.
+
+- Melhor Monitoramento e Controle
+
+  - Geração automática de logs, alertas e registros de execução.
+
+  - Facilidade para auditoria, rastreabilidade e identificação de gargalos.
+
+- Escalabilidade
+
+  - O mesmo fluxo pode ser reutilizado para múltiplos arquivos, bases, clientes ou regiões com mínimo ajuste.
+
+  - Facilidade para expansão do pipeline com novos dados ou fontes.
+
+- Redução de Custos Operacionais
+
+  - Menor dependência de trabalho manual e retrabalho.
+
+  - Otimização do uso de recursos e tempo da equipe.
+
+- Agilidade na Tomada de Decisão
+
+  - Dados atualizados automaticamente abastecem dashboards e relatórios em tempo real.
+
+  - Redução do tempo entre o dado bruto e a geração de insights.
 
 ## Conclusão
 
-
+Este projeto demonstra minha capacidade de projetar e orquestrar pipelines de dados automatizados e confiáveis utilizando Apache Airflow. A solução entrega valor ao eliminar processos manuais, garantir consistência na movimentação dos dados e possibilitar uma governança mais robusta por meio de logs, agendamentos e dependências bem definidas. Com isso, reforço meus estudos em engenharia de dados aplicada à automação, controle e escalabilidade de fluxos de informação críticos para o negócio.
 
 ## Contato
+
+- Autor: Kleber Goes da Silva
+
+- E-mail: kleber-goes@hotmail.com
+
+- LinkedIn: https://www.linkedin.com/in/kleber-goes-02091990/
