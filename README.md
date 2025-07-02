@@ -205,19 +205,29 @@ Para agilizar a tomada de decisão dos departamentos Financeiro e Comercial, foi
 
 ![Image](https://github.com/user-attachments/assets/e223709e-ff6a-428d-a817-801982d528f3)
 
-#### Criação de views para Validação de carga DW:
+#### Criação de Views para Validação da Carga no Data Warehouse (DW):
 
-Volume de registros ativos da tabela dimensão:
+1. Volume de registros ativos da tabela dimensão.
+   
+   Enquanto não houver alterações nos atributos dos registros, o total permanece em 157 registros ativos. A cada modificação nos atributos de algum
+   registro da dimensão, esse número é incrementado, refletindo a nova versão do dado conforme a lógica de SCD (Slowly Changing Dimension).
 
-![Image](https://github.com/user-attachments/assets/389046bc-7ae2-48e3-bff8-8c897d621bc3)
+   ![Image](https://github.com/user-attachments/assets/389046bc-7ae2-48e3-bff8-8c897d621bc3)
 
-Volume de registros por dia:
+2. Volume de registros por dia:
+   
+   Enquanto não houver alterações nos atributos dos registros, o total permanece em 157 registros ativos. A cada modificação nos atributos de algum
+   registro da dimensão, esse número é incrementado, refletindo a nova versão do dado conforme a lógica de SCD (Slowly Changing Dimension).
+   Como o processo é incremental, o volume total de registros cresce diariamente, refletindo o histórico das alterações realizadas.
 
-![Image](https://github.com/user-attachments/assets/7d42506f-9b3c-4818-bb87-6c9cd4cb8d9c)
+   ![Image](https://github.com/user-attachments/assets/7d42506f-9b3c-4818-bb87-6c9cd4cb8d9c)
 
-Qualidade da carga realizada. Verificação se há null ou zero nas colunas:
+4. Qualidade da carga realizada. 
 
-![Image](https://github.com/user-attachments/assets/7d5c7530-bbe8-4a7f-9a3f-bec65c9ff941)
+   Realiza-se a verificação de valores nulos ou zerados nas colunas, com o objetivo de identificar possíveis falhas ocorridas em qualquer etapa do pipeline de dados.
+   Esse controle é essencial para garantir a confiabilidade das informações carregadas, assegurando que os dados estejam adequados para análises e tomada de decisão.
+
+   ![Image](https://github.com/user-attachments/assets/7d5c7530-bbe8-4a7f-9a3f-bec65c9ff941)
 
 ## Como Executar
 
@@ -229,7 +239,7 @@ Qualidade da carga realizada. Verificação se há null ou zero nas colunas:
       
    3. **Git:** Para clonar o projeto no GitHub.
   
-2. Navegar até o diretório que deseja baixar o projeto e rodar:
+2. Navegar até o diretório do sistema operacional que deseja baixar o projeto e rodar:
    
 ```
 git clone https://github.com/klebergoes/ED_Pipeline_Airflow_Postgres_Cotacao_Moeda.git
@@ -248,6 +258,24 @@ http://localhost:8080
   - **Login:** admin
 
   - **Senha:** admin
+  
+- **Após efetuar login na interface do Airflow, é necessário realizar algumas configurações para o correto funcionamento do pipeline:**
+1. Cadastro da Variável com a URL da API:
+    1. Acesse a aba “Admin” > “Variables” e clique em “Add Variable”.
+    2. Preencha os campos da seguinte forma:
+        - Key: BASE_URL
+        - Value: https://www4.bcb.gov.br/Download/fechamento/
+
+2. Criação da Conexão com o Banco de Dados Postgres:
+    1. Acesse a aba “Admin” > “Connections” e clique em “+ Add a new record”.
+    2. Preencha os campos conforme abaixo:
+        - Connection ID: postgres_astro
+        - Connection Type: postgres
+        - Host: airflow_6221ff-postgres-1
+        - Login: postgres
+        - Password: postgres
+        - Port: 5432
+        - Schema: Astro
 
 5. Acesse a interface gráfica do pgAdmin 4 via browser:
 ```
@@ -259,16 +287,19 @@ http://localhost:8081
 
   - **Senha:** admin
  
-  Após logar no pgAdmin 4, é necessário criar um servidor (Create Server) e preencher os seguintes dados:
-
-  - Aba "General":
-    - Name: Postgres_Astro (sugestão — pode ser qualquer nome)
-  - Aba "Connection":
-    - Host name / Address: airflow_6221ff-postgres-1 
-    - Port: 5432
-    - Maintenance database: postgres
-    - Username: postgres
-    - Password: postgres
+- **Após realizar login no pgAdmin 4, é necessário criar um novo servidor para acessar o banco de dados:**
+1. Criação do Servidor:
+    1. Clique com o botão direito em "Servers" e selecione "Create" > "Server..."
+  
+2. Preenchimento das Informações:
+    1. Aba General
+        - Name: Postgres_Astro
+    2. Aba Connection:
+        - Host name / Address: airflow_6221ff-postgres-1
+        - Port: 5432
+        - Maintenance database: postgres
+        - Username: postgres
+        - Password: postgres
    
   **Dica:**
 
