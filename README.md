@@ -301,20 +301,33 @@ http://localhost:8081
         - Username: postgres
         - Password: postgres
    
-  **Dica:**
+>  **Dica:**
+>
+>  Para conferir o nome do host (container) e a porta em que o PostgreSQL está rodando, execute:
+>  ```
+>  docker ps
+>  ```
+>  Você verá algo como:
+>  ```
+>  CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS         
+>  2085ece929b3   postgres:12.6                   "docker-entrypoint.s…"   5 weeks ago    Up 8 minutes   
+>
+>  PORTS                                              NAMES
+>  127.0.0.1:5432->5432/tcp                           airflow_6221ff-postgres-1
+>  ```
 
-  Para conferir o nome do host (container) e a porta em que o PostgreSQL está rodando, execute:
-  ```
-  docker ps
-  ```
-  Você verá algo como:
-  ```
-  CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS         
-  2085ece929b3   postgres:12.6                   "docker-entrypoint.s…"   5 weeks ago    Up 8 minutes   
+Agora é só habilitar o pipeline:
 
-  PORTS                                              NAMES
-  127.0.0.1:5432->5432/tcp                           airflow_6221ff-postgres-1
-  ```
+![Image](https://github.com/user-attachments/assets/f965fabe-4921-4709-8139-27abe019f0c2)
+
+Aguardar a finalização de execução das atividades:
+
+![Image](https://github.com/user-attachments/assets/d69a241d-42dd-4e62-a42f-be105270c81f)
+
+Conferir no PGadmin 4 se a carga foi realizada com sucesso:
+
+![Image](https://github.com/user-attachments/assets/2fc3c676-1700-4f8d-adb5-2b832b278dcc)
+
 ## Resultados
 
 - Redução de Erros Manuais
